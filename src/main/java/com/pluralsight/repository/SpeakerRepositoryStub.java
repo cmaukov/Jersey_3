@@ -35,4 +35,13 @@ public class SpeakerRepositoryStub implements SpeakerRepository {
         speakers.add(speaker);
         return speaker;
     }
+
+    @Override
+    public Speaker update(Speaker speaker) {
+        Speaker storedSpeaker = findById(speaker.getId());
+
+        storedSpeaker.setName(speaker.getName());
+        storedSpeaker.setCompany(speaker.getCompany());
+        return storedSpeaker;
+    }
 }
