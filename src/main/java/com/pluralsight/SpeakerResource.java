@@ -38,7 +38,7 @@ public class SpeakerResource {
         System.out.println(speaker.getName());
         System.out.println(speaker.getCompany());
 
-       speaker =  speakerRepository.create(speaker);
+        speaker = speakerRepository.create(speaker);
         return speaker;
     }
 
@@ -54,9 +54,18 @@ public class SpeakerResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Speaker updateSpeaker(Speaker speaker){
+    public Speaker updateSpeaker(Speaker speaker) {
         speaker = speakerRepository.update(speaker);
         return speaker;
     }
+
+    @Path("{id}")
+    @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public void deleteSpeaker(@PathParam("id") Long id) {
+        speakerRepository.delete(id);
+    }
+
 
 }

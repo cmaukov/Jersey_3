@@ -26,12 +26,12 @@ public class SpeakerRepositoryStub implements SpeakerRepository {
 
     @Override
     public Speaker findById(Long id) {
-        return speakers.stream().filter(s -> s.getId().equals(id)).findFirst().orElse(null);
+        return findSpeakerById(speakers, id);
     }
 
     @Override
     public Speaker create(Speaker speaker) {
-        speaker.setId(speakers.size()+1L);
+        speaker.setId(speakers.size() + 1L);
         speakers.add(speaker);
         return speaker;
     }
@@ -43,5 +43,16 @@ public class SpeakerRepositoryStub implements SpeakerRepository {
         storedSpeaker.setName(speaker.getName());
         storedSpeaker.setCompany(speaker.getCompany());
         return storedSpeaker;
+    }
+
+    @Override
+    public void delete(Long id) {
+        Speaker speaker = findSpeakerById(speakers, id);
+        if (speaker == null) return;
+        speakers.remove(speaker);
+    }
+
+    private Speaker findSpeakerById(List<Speaker> speakers, Long id) {
+        return speakers.stream().filter(s -> s.getId().equals(id)).findFirst().orElse(null);
     }
 }

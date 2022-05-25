@@ -55,6 +55,13 @@ public class SpeakerClient {
                 .put(Entity.entity(speaker,MediaType.APPLICATION_JSON));
         return response.readEntity(Speaker.class);
     }
+    private void delete(Long id) {
+        Response response = client
+                .target(SPEAKER_URI)
+                .path(String.valueOf(id))
+                .request(MediaType.APPLICATION_JSON)
+                .delete();
+    }
 
     public static void main(String[] args) {
         SpeakerClient client = new SpeakerClient();
@@ -72,7 +79,10 @@ public class SpeakerClient {
         speaker.setCompany("Bob the Builder");
         speaker = client.put(speaker);
         System.out.println(speaker.getCompany());
+        client.delete(speaker.getId());
 
 
     }
+
+
 }
