@@ -13,10 +13,6 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
-/* conference-service
- * @created 05/24/2022
- * @author Konstantin Staykov
- */
 @Path("search/speaker")
 public class SpeakerSearchResource {
     private SpeakerRepository speakerRepository = new SpeakerRepositoryStub();
@@ -26,9 +22,9 @@ public class SpeakerSearchResource {
     public Response searchForSpeakers(@QueryParam(value = "company") List<String> companies) {
         List<Speaker> speakers = speakerRepository.findSpeakerByCompany(companies);
         if (speakers == null || speakers.size() <= 0) {
-        return Response.status(Response.Status.NOT_FOUND).build();
+            return Response.status(Response.Status.NOT_FOUND).build();
         }
-        return Response.ok().entity(new GenericEntity<List<Speaker>>(speakers){}).build();
+        return Response.ok().entity(new GenericEntity<List<Speaker>>(speakers) {
+        }).build();
     }
-
 }

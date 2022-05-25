@@ -9,10 +9,6 @@ import jakarta.ws.rs.core.MultivaluedMap;
 
 import java.util.List;
 
-/* conference-service
- * @created 05/20/2022
- * @author Konstantin Staykov
- */
 @Path("speaker")
 public class SpeakerResource {
 

@@ -1,8 +1,4 @@
 package com.pluralsight.model;
-/* conference-service
- * @created 05/20/2022
- * @author Konstantin Staykov
- */
 
 public class Speaker {
     private Long id;

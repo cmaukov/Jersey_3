@@ -1,8 +1,4 @@
 package com.pluralsight.repository;
-/* conference-service
- * @created 05/20/2022
- * @author Konstantin Staykov
- */
 
 import com.pluralsight.model.Speaker;
 

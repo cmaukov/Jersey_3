@@ -1,8 +1,4 @@
 package com.pluralsight.client;
-/* conference-service
- * @created 05/24/2022
- * @author Konstantin Staykov
- */
 
 import com.pluralsight.model.Speaker;
 import jakarta.ws.rs.client.Client;
