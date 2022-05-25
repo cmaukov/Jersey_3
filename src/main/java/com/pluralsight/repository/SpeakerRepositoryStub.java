@@ -25,7 +25,8 @@ public class SpeakerRepositoryStub implements SpeakerRepository {
 
         speakers.add(speaker2);
     }
-    public SpeakerRepositoryStub () {
+
+    public SpeakerRepositoryStub() {
 
     }
 
@@ -68,16 +69,17 @@ public class SpeakerRepositoryStub implements SpeakerRepository {
     public List<Speaker> findByCompany(List<String> companies, int ageFromVal, int ageToVal) {
         //select * from speakers where company in [?,?] and age > ? and age < ?
 
-        List<Speaker> speakers = new ArrayList<>();
-
-        Speaker speaker = new Speaker();
-        speaker.setName("Randy");
-        speaker.setCompany("Snowbird");
-        speaker.setId(78L);
-
-        speakers.add(speaker);
-
-        return speakers;
+//        List<Speaker> speakers = new ArrayList<>();
+//
+//        Speaker speaker = new Speaker();
+//        speaker.setName("Randy");
+//        speaker.setCompany("Snowbird");
+//        speaker.setId(78L);
+//
+//        speakers.add(speaker);
+//
+//        return speakers;
+        return speakers.stream().filter(s -> companies.contains(s.getCompany())).toList();
     }
 
     @Override
