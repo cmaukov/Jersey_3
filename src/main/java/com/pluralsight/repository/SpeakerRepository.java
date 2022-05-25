@@ -18,4 +18,6 @@ public interface SpeakerRepository {
     Speaker update(Speaker speaker);
 
     void delete(Long id);
+
+    List<Speaker> findSpeakerByCompany(List<String> companies);
 }
